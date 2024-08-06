@@ -1,11 +1,11 @@
-import './SideBar.css'
+import "./Sidebar.css";
 
 const SideBar = () => {
     return (
-        <div className='sidebar'>
+        <div className="sidebar">
             SideBar
         </div>
-    )
-}
+    );
+};
 
-export default SideBar
+export default SideBar;
