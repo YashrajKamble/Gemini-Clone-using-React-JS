@@ -1,17 +1,15 @@
-// const apikey = "AIzaSyDzL6k_Tn0Og0ywCbyqbo_JyT08sc_CSNc";
+let GoogleGenerativeAI;
+let genAI;
 
-const {
-    GoogleGenerativeAI,
-    HarmCategory,
-    HarmBlockThreshold,
-} = import("@google/generative-ai");
+const loadGoogleGenerativeAI = async () => {
+    const module = await import("@google/generative-ai");
+    GoogleGenerativeAI = module.GoogleGenerativeAI;
 
-// const apiKey = process.env.GEMINI_API_KEY;
-const genAI = new GoogleGenerativeAI("AIzaSyDzL6k_Tn0Og0ywCbyqbo_JyT08sc_CSNc");
-
-const model = genAI.getGenerativeModel({
-    model: "gemini-1.0-pro",
-});
+    genAI = new GoogleGenerativeAI("AIzaSyDzL6k_Tn0Og0ywCbyqbo_JyT08sc_CSNc");
+    return genAI.getGenerativeModel({
+        model: "gemini-1.0-pro",
+    });
+};
 
 const generationConfig = {
     temperature: 0.9,
@@ -21,16 +19,25 @@ const generationConfig = {
 };
 
 async function run(prompt) {
-    const chatSession = model.startChat({
-        generationConfig,
-        // safetySettings: Adjust safety settings
-        // See https://ai.google.dev/gemini-api/docs/safety-settings
-        history: [
-        ],
-    });
+    if (!genAI) {
+        // Ensure that genAI is initialized
+        const model = await loadGoogleGenerativeAI();
+        const chatSession = model.startChat({
+            generationConfig,
+            history: [],
+        });
 
-    const result = await chatSession.sendMessage(prompt);
-    console.log(result.response.text());
+        const result = await chatSession.sendMessage(prompt);
+        console.log(result.response.text());
+    } else {
+        const chatSession = genAI.startChat({
+            generationConfig,
+            history: [],
+        });
+
+        const result = await chatSession.sendMessage(prompt);
+        console.log(result.response.text());
+    }
 }
 
 export default run;

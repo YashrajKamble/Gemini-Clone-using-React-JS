@@ -9,15 +9,15 @@ const ContextProvider = (props) => {
         await run(prompt);
     };
 
-    // onSent("What is react js ?");
+    onSent("What is react js ?");
 
     const contextValue = {
 
     };
     return (
-        <ContextProvider value={contextValue}>
+        <Context.Provider value={contextValue}>
             {props.children}
-        </ContextProvider>
+        </Context.Provider>
     );
 };
 
