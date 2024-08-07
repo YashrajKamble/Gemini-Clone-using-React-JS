@@ -38,6 +38,17 @@ const SideBar = () => {
                     <img src={assets.setting_icon} alt="setting" />
                     {extended ? <p>Setting</p> : null}
                 </div>
+
+                {extended ? <div className="location">
+                    <span></span>
+                    <div>
+                        <p>
+                            Nigdi, Pimpri-chinchwad, Maharashtra, India</p>
+                        <p className="ip">From your IP address • Update location</p>
+                    </div>
+
+                </div> : null}
+
             </div>
         </div>
     );
