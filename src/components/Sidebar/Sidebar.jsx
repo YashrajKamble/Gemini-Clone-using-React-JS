@@ -6,7 +6,7 @@ const SideBar = () => {
     const [extended, setExtended] = useState(true);
 
     return (
-        <div className="sidebar">
+        <div className={`sidebar ${extended ? "larger" : ""}`}>
             <div className="top">
                 <img onClick={() => setExtended(prev => !prev)} className="menu" src={assets.menu_icon} alt="menu icon" />
 
@@ -42,8 +42,7 @@ const SideBar = () => {
                 {extended ? <div className="location">
                     <span></span>
                     <div>
-                        <p>
-                            Nigdi, Pimpri-chinchwad, Maharashtra, India</p>
+                        <p>Mumbai, Maharashtra, India</p>
                         <p className="ip">From your IP address • Update location</p>
                     </div>
 

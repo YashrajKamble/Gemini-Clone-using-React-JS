@@ -5,9 +5,11 @@
   justify-content: space-between;
   background-color: #f0f4f9;
   padding: 25px 10px;
-  /* width: 23%; */
 }
 
+.larger {
+  width: 23%;
+}
 
 .sidebar img {
   width: 21px;
@@ -24,7 +26,7 @@
   display: inline-flex;
   align-items: center;
   gap: 18px;
-  padding: 9px 15px;
+  padding: 11px 15px;
   background-color: #e6eaf1;
   border-radius: 50px;
   font-size: 14px;
@@ -87,11 +89,11 @@
   align-items: center;
   margin: 10px auto;
   display: flex;
-  /* background: red; */
 }
 
 .sidebar .location p {
   font-size: 12px;
+  cursor: pointer;
 }
 
 .sidebar .location span {
