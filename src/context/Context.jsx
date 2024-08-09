@@ -23,17 +23,19 @@ const ContextProvider = (props) => {
         setResultData("");
         setLoading(true);
         setShowResult(true);
+
         let response;
         if (prompt !== undefined) {
             response = await run(prompt);
             setRecentPrompt(prompt);
         } else {
             setPrevPrompts(prev => [...prev, input]);
-            setPrevPrompts(input);
+            setRecentPrompt(input);
             response = await run(input);
         }
-        setRecentPrompt(input);
-        setPrevPrompts(prev => [...prev, input]);
+        // setRecentPrompt(input);
+        // setPrevPrompts(prev => [...prev, input]);
+
         let responseArray = response.split("**");
         let newResponse = "";
         for (let i = 0; i < responseArray.length; i++) {
@@ -44,6 +46,7 @@ const ContextProvider = (props) => {
                 newResponse += "<b>" + responseArray[i] + "</b>";
             }
         }
+
         let newResponse2 = newResponse.split("*").join("</br>");
         let newResponseArray = newResponse2.split(" ");
         for (let i = 0; i < newResponseArray.length; i++) {
