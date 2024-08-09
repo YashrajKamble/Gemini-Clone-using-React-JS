@@ -4,7 +4,7 @@ import './Main.css';
 import { Context } from '../../context/Context';
 
 const Main = () => {
-    const { onSent, recentPrompt, showResult, laoding, resultData, setInput, input } = useContext(Context);
+    const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context);
 
     return (
         <div className='main'>
