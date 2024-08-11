@@ -86,7 +86,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20%;
+  gap: 2%;
   background-color: #f0f4f9;
   padding: 10px 20px;
   border-radius: 50px;
@@ -185,14 +185,14 @@
 }
 
 @media (max-width: 600px) {
-  .main-bottom input {
+  .search-box input {
     flex: none;
     width: 150px;
   }
-  .main-bottom img {
+  .main-bottom .search-box img {
     width: 20px;
   }
-  .search-box {
+  .main-bottom .search-box {
     padding: 5px 10px;
   }
   .search-box div {
