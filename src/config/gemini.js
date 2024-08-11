@@ -20,10 +20,8 @@ const generationConfig = {
 
 async function run(prompt) {
     if (!model) {
-        // Ensure that model is initialized
         model = await loadGoogleGenerativeAI();
     }
-
     const chatSession = model.startChat({
         generationConfig,
         history: [],
@@ -33,7 +31,5 @@ async function run(prompt) {
     const response = result.response;
     console.log(response.text());
     return response.text();
-
 }
-
 export default run;
