@@ -114,8 +114,8 @@
   font-size: 11px;
 }
 
-@media (max-width:600px){
-  .sidebar{
+@media (max-width: 600px) {
+  .sidebar {
     display: none;
   }
 }
